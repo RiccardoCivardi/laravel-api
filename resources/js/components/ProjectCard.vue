@@ -43,7 +43,12 @@
         <div class="card h-100">
             <div class="card-body text-center">
 
-                <h5 class="card-title">{{project.name}}</h5>
+                <div class="d-flex justify-content-between align-items-center">
+                    <h5 class="card-title me-3">{{project.name}}</h5>
+                    <router-link :to="{name: 'project', params: {slug: project.slug}}">
+                        <i class="fa-regular fa-eye fs-3 text-light"></i>
+                    </router-link>
+                </div>
                 <h5 v-if="project.type"><span class="badge text-bg-primary">{{project.type.name}}</span></h5>
 
                 <div

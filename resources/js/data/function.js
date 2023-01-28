@@ -5,9 +5,12 @@ function truncateText(text, textMaxLength) {
 
 const formatDate = (data) => {
 
-    let newData = data.slice(0,9);
+    let newData = data.slice(0,10);
     newData = newData.split('-').reverse().join('/');
     return newData;
 }
+const toUpperCase = (text) => {
+    return text.toUpperCase();
+}
 
-export {truncateText, formatDate};
+export {truncateText, formatDate, toUpperCase};

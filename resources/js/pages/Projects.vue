@@ -40,15 +40,20 @@
                 })
                 .then(results => {
 
-                this.store.projects = results.data.projects.data;
+                    if(results.data.projects){
 
-                this.store.pagination.current = results.data.projects.current_page;
-                this.store.pagination.last = results.data.projects.last_page;
+                        this.store.projects = results.data.projects.data;
 
-                console.log(results.data.projects);
-                })
-                .catch(error => {
+                        this.store.pagination.current = results.data.projects.current_page;
+                        this.store.pagination.last = results.data.projects.last_page;
 
+                    }else {
+
+                        this.$router.push({ name: 'not-found'});
+
+                    }
+
+                // console.log(results.data.projects);
                 })
 
             }

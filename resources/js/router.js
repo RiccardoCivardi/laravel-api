@@ -5,6 +5,7 @@ import Contacts from './pages/Contacts.vue';
 import About from './pages/About.vue';
 import Projects from './pages/Projects.vue';
 import Error404 from './pages/Error404.vue';
+import ProjectShow from './pages/ProjectShow.vue';
 
 const router = createRouter({
     history : createWebHistory(),
@@ -29,6 +30,17 @@ const router = createRouter({
             path: '/progetti',
             name: 'projects',
             component: Projects
+        },
+        {
+            path: '/progetti/dettaglio-progetto/:slug',
+            name: 'project',
+            component: ProjectShow
+        },
+        {
+            path: '/not-found',
+            name: 'not-found',
+            component: Error404
+
         },
         {
             path:'/:pathMatch(.*)*',
