@@ -74,6 +74,7 @@
 
     .card-wrapper {
         width: calc(100% / 4);
+        min-width: 300px;
         padding: 10px 10px;
     }
 

@@ -73,9 +73,9 @@
 
     <h1 class="my-5 text-center"> PROGETTI BOOLEAN</h1>
 
-    <div class="container d-flex flex-wrap">
+    <div class="container">
 
-        <div class="row">
+        <div class="row d-flex flex-wrap justify-content-center">
 
             <ProjectCard v-for="project in store.projects" :key="project.id" :project="project"/>
 
