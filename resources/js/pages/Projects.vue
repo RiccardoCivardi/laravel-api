@@ -33,19 +33,19 @@
 
             getApi(){
 
-                axios.get(this.baseUrl + 'projects', {
+                axios.get(baseUrl + 'projects', {
                 params: {
-                    page: this.store.pagination.current
+                    page: store.pagination.current
                 }
                 })
                 .then(results => {
 
                     if(results.data.projects){
 
-                        this.store.projects = results.data.projects.data;
+                        store.projects = results.data.projects.data;
 
-                        this.store.pagination.current = results.data.projects.current_page;
-                        this.store.pagination.last = results.data.projects.last_page;
+                        store.pagination.current = results.data.projects.current_page;
+                        store.pagination.last = results.data.projects.last_page;
 
                     }else {
 

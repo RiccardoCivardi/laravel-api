@@ -24,7 +24,7 @@
 
             getApi() {
 
-                axios.get(this.baseUrl +'projects/' + this.$route.params.slug)
+                axios.get(baseUrl +'projects/' + this.$route.params.slug)
                     .then(results => {
 
                         if(Object.keys(results.data).length){

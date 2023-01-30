@@ -61,7 +61,7 @@
                 </div>
 
                 <p class="card-title">Aggiornato il: {{dateFormat}}</p>
-                <div class="card-text" v-html="truncateText(project.summary, this.textMaxLength)"></div>
+                <div class="card-text" v-html="truncateText(project.summary, textMaxLength)"></div>
             </div>
         </div>
 
