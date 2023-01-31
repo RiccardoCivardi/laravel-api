@@ -1,8 +1,16 @@
 <script>
 
+    import ContactForm from '../components/ContactForm.vue';
+
     export default {
 
-        name: 'Contacts'
+        name: 'Contacts',
+
+        components: {
+
+            ContactForm
+
+        }
 
     }
 
@@ -13,7 +21,13 @@
 
     <div class="container-fluid d-flex align-items-center justify-content-center h-100">
 
-        <h1>CONTATTI</h1>
+        <div>
+
+            <h1>CONTATTI</h1>
+
+            <ContactForm/>
+
+        </div>
 
     </div>
 
