@@ -19,6 +19,8 @@ class ProjectController extends Controller
         $technologies = Technology::all();
 
         return response()->json(compact('projects','types','technologies'));
+
+        // return response()->json(['projects' => $projects, 'types' => $types, 'technologies' => $technologies]);
     }
 
     public function show($slug) {
@@ -42,7 +44,10 @@ class ProjectController extends Controller
         $tosearch = $_GET['tosearch'];
         $projects = Project::where('name','like',"%$tosearch%")->with(['type','technologies'])->orderBy('id','desc')->paginate(9);
 
-        return response()->json($projects);
+        $types = Type::all();
+        $technologies = Technology::all();
+
+        return response()->json(compact('projects','types','technologies'));
     }
 
 
@@ -50,7 +55,10 @@ class ProjectController extends Controller
 
         $projects = Project::where('type_id',$id)->with(['type','technologies'])->orderBy('id','desc')->paginate(9);
 
-        return response()->json($projects);
+        $types = Type::all();
+        $technologies = Technology::all();
+
+        return response()->json(compact('projects','types','technologies'));
 
     }
 
@@ -62,7 +70,10 @@ class ProjectController extends Controller
             })
             ->orderBy('id','desc')->paginate(9);
 
-        return response()->json($projects);
+        $types = Type::all();
+        $technologies = Technology::all();
+
+        return response()->json(compact('projects','types','technologies'));
 
     }
 

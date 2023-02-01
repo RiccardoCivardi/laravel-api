@@ -11,6 +11,13 @@ export const store = reactive({
         last: null,
     },
 
-    main_title: 'Elenco progetti'
+    main_title: 'Elenco progetti',
+
+    typeTechParam: '',
+
+    searchParam: '',
+
+    apiType : '',
+
 
 });

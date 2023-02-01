@@ -19,19 +19,31 @@
 
         methods:{
 
-            getApi(){
+            getApi(string){
+
+                store.pagination.current = 1;
+
                 axios.get(baseUrl + 'projects/search', {
                     params:{
                         tosearch: this.tosearch
                     }
+
                 })
                     .then(result => {
-                        this.tosearch = '';
-                        store.projects = result.data.data;
-                        store.pagination.current = result.data.current_page;
-                        store.pagination.last = result.data.last_page;
+
                         // console.log(result.data);
+                        store.projects = result.data.projects.data;
+                        store.pagination.current = result.data.projects.current_page;
+                        store.pagination.last = result.data.projects.last_page;
+                        // console.log(result.data);
+                        store.apiType = string;
+                        store.searchParam = 'projects/search?tosearch='+this.tosearch;
+                        this.tosearch = '';
+
+
+
                     })
+
 
             }
         }
@@ -44,8 +56,8 @@
 
     <div class="container d-flex justify-content-center">
 
-        <input v-model.trim="tosearch" @keyup.enter="getApi" class="form-control me-3 w-25" type="text" placeholder="Cerca">
-        <button @click="getApi" class="btn btn-light">Invia</button>
+        <input v-model.trim="tosearch" @keyup.enter="getApi('search')" class="form-control me-3 w-25" type="text" placeholder="Cerca">
+        <button @click="getApi('search')" class="btn btn-light">Invia</button>
 
     </div>
 
