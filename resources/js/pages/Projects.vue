@@ -3,7 +3,9 @@
     import axios from 'axios';
 
     import ProjectCard from '../components/ProjectCard.vue';
-    import Pagination from '../components/Pagination.vue'
+    import Pagination from '../components/Pagination.vue';
+    import FormSearch from '../components/FormSearch.vue';
+    import AsideTypeTechnology from '../components/AsideTypeTechnology.vue';
 
 
     import {store} from '../data/store';
@@ -16,7 +18,9 @@
         components: {
 
         ProjectCard,
-        Pagination
+        Pagination,
+        FormSearch,
+        AsideTypeTechnology
 
         },
 
@@ -43,6 +47,9 @@
                     if(results.data.projects){
 
                         store.projects = results.data.projects.data;
+
+                        store.types = results.data.types;
+                        store.thecnologies = results.data.technologies;
 
                         store.pagination.current = results.data.projects.current_page;
                         store.pagination.last = results.data.projects.last_page;
@@ -71,19 +78,31 @@
 
 <template>
 
-    <h1 class="my-5 text-center"> PROGETTI BOOLEAN</h1>
+    <div class="container-fluid d-flex">
 
-    <div class="container">
+        <div class="container-fluid">
 
-        <div class="row d-flex flex-wrap justify-content-center">
+            <h1 class="my-5 text-center">{{store.main_title}}</h1>
 
-            <ProjectCard v-for="project in store.projects" :key="project.id" :project="project"/>
+            <FormSearch />
+
+            <div class="container mt-5">
+
+                <div class="row d-flex flex-wrap justify-content-center">
+
+                    <ProjectCard v-for="project in store.projects" :key="'proj'+project.id" :project="project"/>
+
+                </div>
+
+            </div>
+
+            <Pagination @pagination="getApi()"/>
 
         </div>
 
-    </div>
+        <AsideTypeTechnology @getApi="getApi()"/>
 
-    <Pagination @pagination="getApi()"/>
+    </div>
 
 </template>
 

@@ -52,10 +52,10 @@
                 <h5 v-if="project.type"><span class="badge text-bg-primary">{{project.type.name}}</span></h5>
 
                 <div
-                    v-if="project.technologies.length"
+                    v-if="project.technologies"
                     class="technologies mb-2 text-center">
                     <span
-                        v-for="technology in project.technologies" :key="technology.id"
+                        v-for="technology in project.technologies" :key="'tech'+technology.id"
                         class="badge text-bg-warning me-2 ">{{technology.name}}
                     </span>
                 </div>
