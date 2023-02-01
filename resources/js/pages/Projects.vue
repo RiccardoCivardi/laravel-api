@@ -43,20 +43,20 @@
 
                 if(store.apiType == 'type' || store.apiType == 'tech') {
                     url = baseUrl + 'projects/'+ store.typeTechParam + '?page=' + store.pagination.current;;
-                    console.log(url);
+                    // console.log(url);
                 } else if (store.apiType == 'search') {
                     url = baseUrl + store.searchParam + '&page=' + store.pagination.current;
-                    console.log(url);
+                    // console.log(url);
                 } else if(store.apiType == 'project') {
                     url = baseUrl + 'projects?page=' + store.pagination.current;
-                    console.log(url);
+                    // console.log(url);
                 }
 
 
                 axios.get(url)
                 .then(results => {
 
-                    console.log(results.data);
+                    // console.log(results.data);
                     store.projects = results.data.projects.data;
 
                     store.types = results.data.types;

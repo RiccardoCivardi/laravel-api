@@ -63,7 +63,7 @@
                 </button>
 
                 <button class="btn btn-light btn-sm mt-4"
-                    @click="store.apiType = 'project'; store.pagination.current = 1; $emit('getApi')"
+                    @click="store.apiType = 'project'; store.pagination.current = 1; store.main_title = 'Elenco progetti'; $emit('getApi')"
                 >
                    Tutti i progetti
                 </button>
